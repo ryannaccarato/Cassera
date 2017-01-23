@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText"
+        android:id="@+id/editText_MainActivity_Username"
         android:hint="username"
         android:background="@android:drawable/edit_text" />
 
@@ -49,7 +49,7 @@
         android:layout_height="wrap_content"
         android:inputType="numberPassword"
         android:ems="10"
-        android:id="@+id/editText2"
+        android:id="@+id/editText_MainActivity_Password"
         android:hint="password"
         android:background="@android:drawable/edit_text" />
 
@@ -62,11 +62,11 @@
         android:text="Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button" />
+        android:id="@+id/button_MainActivity_Login" />
 
     <Button
         android:text="Cancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button2" />
+        android:id="@+id/button_MainActivity_Cancel" />
 </LinearLayout>
