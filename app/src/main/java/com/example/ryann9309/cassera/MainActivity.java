@@ -1,5 +1,6 @@
 package com.example.ryann9309.cassera;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
                     mUserName.setText("");
                     mPassword.setText("");
                     Toast.makeText(getApplicationContext(), "Logged in", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getApplicationContext(), LandingActivity.class));
                 }
             }
         });

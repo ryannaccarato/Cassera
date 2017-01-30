@@ -19,7 +19,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:text="Your account for everything Cassera"
+        android:text="Your account for everything CAASsera"
         android:layout_weight="1"
         tools:layout_width="match_parent"
         android:gravity="center"
@@ -33,10 +33,10 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/editText_MainActivity_Username"
-        android:hint="username"
+        android:hint="user@email.com"
         android:background="@android:drawable/edit_text" />
 
     <Space
@@ -62,11 +62,13 @@
         android:text="Login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button_MainActivity_Login" />
+        android:id="@+id/button_MainActivity_Login"
+        android:textSize="18sp" />
 
     <Button
         android:text="Cancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button_MainActivity_Cancel" />
+        android:id="@+id/button_MainActivity_Cancel"
+        android:textSize="18sp" />
 </LinearLayout>
