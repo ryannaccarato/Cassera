@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -14,7 +15,22 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3" />
+        android:layout_weight="1" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:srcCompat="@drawable/logo"
+        android:id="@+id/imageView5"
+        android:background="@android:color/darker_gray"
+        android:layout_weight="2"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2" />
 
     <TextView
         android:layout_width="match_parent"
@@ -23,12 +39,13 @@
         android:layout_weight="1"
         tools:layout_width="match_parent"
         android:gravity="center"
-        android:textSize="18sp" />
+        android:textSize="14sp"
+        android:textColor="@android:color/black" />
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="2" />
 
     <EditText
         android:layout_width="match_parent"
@@ -38,11 +55,6 @@
         android:id="@+id/editText_MainActivity_Username"
         android:hint="user@email.com"
         android:background="@android:drawable/edit_text" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
 
     <EditText
         android:layout_width="match_parent"
@@ -56,7 +68,7 @@
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3" />
+        android:layout_weight="2" />
 
     <Button
         android:text="Login"
@@ -71,4 +83,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/button_MainActivity_Cancel"
         android:textSize="18sp" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 </LinearLayout>
