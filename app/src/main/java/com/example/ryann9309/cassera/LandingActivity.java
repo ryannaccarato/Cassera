@@ -1,5 +1,6 @@
 package com.example.ryann9309.cassera;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -7,12 +8,15 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 public class LandingActivity extends AppCompatActivity {
 
     private ViewPager mPager;
     private PagerAdapter mPagerAdapter;
+    private Button mLogin, mFreeTrial;
     private ImageView mDot1, mDot2, mDot3, mDot4, mDot5;
 
     @Override
@@ -30,12 +34,20 @@ public class LandingActivity extends AppCompatActivity {
         });
         mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
         mPager.setAdapter(mPagerAdapter);
-        setDot(0);
         mDot1 = (ImageView)findViewById(R.id.imageView_LandingActivity_Dot_1);
         mDot2 = (ImageView)findViewById(R.id.imageView_LandingActivity_Dot_2);
         mDot3 = (ImageView)findViewById(R.id.imageView_LandingActivity_Dot_3);
         mDot4 = (ImageView)findViewById(R.id.imageView_LandingActivity_Dot_4);
         mDot5 = (ImageView)findViewById(R.id.imageView_LandingActivity_Dot_5);
+        setDot(0);
+        mLogin = (Button)findViewById(R.id.button_LandingActivity_Login);
+        mLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+            }
+        });
+        mFreeTrial = (Button)findViewById(R.id.button_LandingActivity_FreeTrial);
     }
 
     @Override

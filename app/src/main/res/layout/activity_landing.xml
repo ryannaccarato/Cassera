@@ -79,7 +79,7 @@
             android:text="Login"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/button2"
+            android:id="@+id/button_LandingActivity_Login"
             android:layout_weight="1"
             android:background="@android:drawable/screen_background_light" />
 
@@ -92,7 +92,7 @@
             android:text="Free Trial"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/button"
+            android:id="@+id/button_LandingActivity_FreeTrial"
             android:layout_weight="1"
             android:background="@android:drawable/screen_background_light" />
     </LinearLayout>

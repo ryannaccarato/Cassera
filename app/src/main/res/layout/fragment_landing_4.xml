@@ -1,13 +1,35 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ryann9309.cassera.Landing_4_Fragment">
+    tools:context="com.example.ryann9309.cassera.Landing_4_Fragment"
+    android:orientation="vertical"
+    android:padding="20dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <Space
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="0dp"
+        android:layout_weight=".25" />
 
-</FrameLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:src="@drawable/basketball_hoop" />
+
+    <TextView
+        android:text="Est Qui Dolorem Ipsum "
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:gravity="bottom|center_horizontal"
+        android:textSize="24sp" />
+
+    <TextView
+        android:text="Nullam at neque odio. Curabitur vitae mi tincidunt, mollis enim eget, ultricies felis. Suspendisse potenti. In dictum, magna et pretium maximus, tortor libero gravida metus, eget luctus velit magna in lacus."
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:textSize="18sp" />
+</LinearLayout>
