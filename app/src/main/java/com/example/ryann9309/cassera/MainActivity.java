@@ -32,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
                 if (textPresent(mUserName) && textPresent(mPassword)) {
                     mUserName.setText("");
                     mPassword.setText("");
-                    Toast.makeText(getApplicationContext(), "Logged in", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(getApplicationContext(), LandingActivity.class));
                 }
             }
