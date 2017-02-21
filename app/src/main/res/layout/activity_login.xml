@@ -54,16 +54,18 @@
         android:ems="10"
         android:id="@+id/editText_MainActivity_Username"
         android:hint="user@email.com"
-        android:background="@android:drawable/edit_text" />
+        android:background="@android:drawable/edit_text"
+        android:text="trial12" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="numberPassword"
+        android:inputType="textPassword"
         android:ems="10"
         android:id="@+id/editText_MainActivity_Password"
         android:hint="password"
-        android:background="@android:drawable/edit_text" />
+        android:background="@android:drawable/edit_text"
+        android:text="bigfoot" />
 
     <Space
         android:layout_width="match_parent"
