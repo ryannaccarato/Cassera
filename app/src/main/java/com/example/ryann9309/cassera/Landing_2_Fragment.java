@@ -24,7 +24,7 @@ public class Landing_2_Fragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mWebView = (WebView)view.findViewById(R.id.webView_Main);
-        startWebView("https://www.stackoverflow.com");
+        //startWebView("https://www.stackoverflow.com");
     }
 
     @Override
