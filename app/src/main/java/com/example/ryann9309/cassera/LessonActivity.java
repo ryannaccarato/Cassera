@@ -3,10 +3,16 @@ package com.example.ryann9309.cassera;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
 
 public class LessonActivity extends AppCompatActivity {
 
@@ -21,12 +27,14 @@ public class LessonActivity extends AppCompatActivity {
 
     private void setupUI() {
         Intent i = getIntent();
+        String json = i.getStringExtra(EXTRA_JSON_OBJECT);
+        ObjectMapper mapper = new ObjectMapper();
         try {
-            JSONObject object = new JSONObject(i.getStringExtra(EXTRA_JSON_OBJECT));
-            Toast.makeText(this, object.toString(), Toast.LENGTH_LONG).show();
+            JsonNode node = mapper.readTree(json);
 
-        } catch (JSONException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
+        Toast.makeText(this, json, Toast.LENGTH_LONG).show();
     }
 }
