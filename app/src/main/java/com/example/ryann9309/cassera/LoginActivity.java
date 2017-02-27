@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
     private Boolean textPresent(EditText editText) {
         String text = editText.getText().toString();
         if (text.isEmpty()) {
-            editText.setError("cannot be empty");
+            editText.setError(getString(R.string.emptyEditTextWarning));
             return false;
         }
         return true;

@@ -16,4 +16,13 @@ public class StudentInfo {
     private String firstName;
     @JsonProperty("availableSubscriptions")
     private List<AvailableSubscriptionsItem> availableSubscriptions;
+
+    public String[] getAvailableSubscriptions() {
+        String[] subs = new String[availableSubscriptions.size()];
+        for (int i = 0; i < availableSubscriptions.size(); i++) {
+            AvailableSubscriptionsItem item = availableSubscriptions.get(i);
+            subs[i] = "Id: " + item.subscriptionId + "\nCategory: " + item.sportCategory + "\nSport: " + item.sport;
+        }
+        return subs;
+    }
 }

@@ -27,33 +27,23 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="20dp"
-        android:padding="1dp"
-        android:background="@android:color/background_dark"
-        android:layout_weight="10">
+        android:layout_weight="6">
 
-        <ListView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/listView_LessonActivity" />
+        <include
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            layout="@layout/boardered_list_view"
+            android:id="@+id/listView_Main" />
     </FrameLayout>
 
-    <FrameLayout
+    <EditText
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:background="@android:color/background_dark">
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:inputType="textPersonName"
-            android:ems="10"
-            android:id="@+id/editText"
-            android:hint="lesson comments"
-            android:background="@android:drawable/editbox_background_normal" />
-    </FrameLayout>
+        android:layout_weight=".5"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:hint="lesson comments"
+        android:background="@android:drawable/editbox_background_normal" />
 
 </LinearLayout>
