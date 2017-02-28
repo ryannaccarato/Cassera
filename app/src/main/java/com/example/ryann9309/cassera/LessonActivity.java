@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.ExpandableListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -30,7 +31,7 @@ public class LessonActivity extends AppCompatActivity {
     }
 
     private void setupUI() {
-        mListView = (ListView)findViewById(R.id.listView_Main);
+        mListView = (ListView)findViewById(R.id.listView_Lessons);
         Intent i = getIntent();
         final String json = i.getStringExtra(EXTRA_JSON_OBJECT);
         final ObjectMapper mapper = new ObjectMapper();
@@ -39,7 +40,8 @@ public class LessonActivity extends AppCompatActivity {
             protected Void doInBackground(Void... params) {
                 try {
                     StudentInfo info = mapper.readValue(json, StudentInfo.class);
-                    mAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, info.getAvailableSubscriptions());
+                    mAdapter = new ArrayAdapter(getApplicationContext(), android.R.layout.simple_list_item_1, info.getAvailableSubscriptions()) {
+                    };
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

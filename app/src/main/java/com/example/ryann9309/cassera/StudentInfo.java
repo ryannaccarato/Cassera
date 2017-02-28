@@ -1,7 +1,7 @@
 package com.example.ryann9309.cassera;
 
 /**
- * Created by JacksonGenerator on 2/23/17.
+ * Created by JacksonGenerator on 2/28/17.
  */
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -18,11 +18,12 @@ public class StudentInfo {
     private List<AvailableSubscriptionsItem> availableSubscriptions;
 
     public String[] getAvailableSubscriptions() {
-        String[] subs = new String[availableSubscriptions.size()];
-        for (int i = 0; i < availableSubscriptions.size(); i++) {
-            AvailableSubscriptionsItem item = availableSubscriptions.get(i);
-            subs[i] = "Id: " + item.subscriptionId + "\nCategory: " + item.sportCategory + "\nSport: " + item.sport;
+        int size = currentSubscription.availableLessons.size();
+        String[] lessons = new String[size];
+        for (int i = 0; i < size; i++) {
+            AvailableLessonsItem item = currentSubscription.availableLessons.get(i);
+            lessons[i] = "Id: " + item.lessonId + "\nNumber: " + item.lessonNumber;
         }
-        return subs;
+        return lessons;
     }
 }

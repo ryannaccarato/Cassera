@@ -1,7 +1,7 @@
 package com.example.ryann9309.cassera;
 
 /**
- * Created by JacksonGenerator on 2/23/17.
+ * Created by JacksonGenerator on 2/28/17.
  */
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -9,9 +9,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class AvailableSubscriptionsItem {
     @JsonProperty("sportCategory")
-    public String sportCategory;
+    private String sportCategory;
     @JsonProperty("subscriptionId")
-    public String subscriptionId;
+    private String subscriptionId;
     @JsonProperty("sport")
-    public String sport;
+    private String sport;
 }

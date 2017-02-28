@@ -24,17 +24,18 @@
         android:background="@android:color/background_dark"
         android:layout_height="2dp" />
 
-    <FrameLayout
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6">
+        android:id="@+id/listView_Lessons"
+        android:layout_weight="6" />
 
-        <include
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            layout="@layout/boardered_list_view"
-            android:id="@+id/listView_Main" />
-    </FrameLayout>
+    <ExpandableListView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:id="@+id/expandableListView_Lessons"
+        android:visibility="gone" />
 
     <EditText
         android:layout_width="match_parent"
