@@ -48,6 +48,12 @@ public class LandingActivity extends AppCompatActivity {
             }
         });
         mFreeTrial = (Button)findViewById(R.id.button_LandingActivity_FreeTrial);
+        mFreeTrial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), LessonActivity.class));
+            }
+        });
     }
 
     @Override

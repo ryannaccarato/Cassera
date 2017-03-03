@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -34,8 +33,8 @@ public class LoginActivity extends AppCompatActivity {
                     API_GET.getSubscriptions(getApplicationContext(), mUserName.getText().toString(), mPassword.getText().toString(), new API_GET.JSONResponse() {
                         @Override
                         public void onSuccess(JSONObject object) {
-                            Intent i = new Intent(getApplicationContext(), LessonActivity.class);
-                            i.putExtra(LessonActivity.EXTRA_JSON_OBJECT, object.toString());
+                            Intent i = new Intent(getApplicationContext(), LessonsActivity.class);
+                            i.putExtra(LessonsActivity.EXTRA_JSON_OBJECT, object.toString());
                             startActivity(i);
                         }
                     });
@@ -52,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
     private Boolean textPresent(EditText editText) {
         String text = editText.getText().toString();
         if (text.isEmpty()) {
-            editText.setError(getString(R.string.emptyEditTextWarning));
+            editText.setError(getString(R.string.loginActivity_EmptyEditTextWarning));
             return false;
         }
         return true;

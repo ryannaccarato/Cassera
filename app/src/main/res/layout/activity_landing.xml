@@ -76,7 +76,7 @@
         android:layout_height="50dp">
 
         <Button
-            android:text="Login"
+            android:text="@string/landingActivity_LoginButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/button_LandingActivity_Login"
@@ -89,7 +89,7 @@
             android:layout_width="5dp" />
 
         <Button
-            android:text="Free Trial"
+            android:text="@string/landingActivity_FreeTrialButton"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/button_LandingActivity_FreeTrial"

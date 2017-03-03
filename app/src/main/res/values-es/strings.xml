@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">CAASera</string>
-    <string name="emptyEditTextWarning">no puede estar vacío</string>
+    <string name="loginActivity_EmptyEditTextWarning">no puede estar vacío</string>
+    <string name="landingActivity_LoginButton">Iniciar sesión</string>
+    <string name="landingActivity_FreeTrialButton">" Prueba gratis"</string>
+    <string name="lessonsActivity_Title">Lección #</string>
+    <string name="lessonsActivity_CommentsHints">comentarios de la lección</string>
+    <string name="loginActivity_AccountMessage">Su cuenta para todo CAASera</string>
+    <string name="loginActivity_CancelButton">Cancelar</string>
+    <string name="lessonActivity_Exercises">Ceremonias</string>
+    <string name="lessonActivity_Lessons">Lecciones</string>
+    <string name="lessonActivity_Feedback">Realimentación</string>
+    <string name="lessonActivity_EmptyLessonsList">No hay lecciones todavía.</string>
+    <string name="lessonActivity_ItemClickedToast">Elemento hecho clic</string>
+    <string name="landing2Activity_LoadingDialog">Cargando...</string>
 </resources>

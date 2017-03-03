@@ -1,4 +1,16 @@
 <resources>
     <string name="app_name">CAASera</string>
-    <string name="emptyEditTextWarning">cannot be empty</string>
+    <string name="loginActivity_EmptyEditTextWarning">cannot be empty</string>
+    <string name="landingActivity_LoginButton">Login</string>
+    <string name="landingActivity_FreeTrialButton">Free Trial</string>
+    <string name="lessonsActivity_Title">Lesson #</string>
+    <string name="lessonsActivity_CommentsHints">lesson comments</string>
+    <string name="loginActivity_AccountMessage">Your account for everything CAASera</string>
+    <string name="loginActivity_CancelButton">Cancel</string>
+    <string name="lessonActivity_Exercises">Exercises</string>
+    <string name="lessonActivity_Lessons">Lessons</string>
+    <string name="lessonActivity_Feedback">Feedback</string>
+    <string name="lessonActivity_EmptyLessonsList">No lessons yet.</string>
+    <string name="lessonActivity_ItemClickedToast">Item clicked</string>
+    <string name="landing2Activity_LoadingDialog">Loading...</string>
 </resources>

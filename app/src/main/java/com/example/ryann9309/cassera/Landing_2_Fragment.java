@@ -45,7 +45,7 @@ public class Landing_2_Fragment extends Fragment {
             public void onLoadResource (WebView view, String url) {
                 if (progressDialog == null) {
                     progressDialog = new ProgressDialog(getActivity());
-                    progressDialog.setMessage("Loading...");
+                    progressDialog.setMessage(getString(R.string.landing2Activity_LoadingDialog));
                     progressDialog.show();
                 }
             }
