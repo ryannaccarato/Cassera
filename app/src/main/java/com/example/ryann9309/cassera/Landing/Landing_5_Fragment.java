@@ -1,10 +1,12 @@
-package com.example.ryann9309.cassera;
+package com.example.ryann9309.cassera.Landing;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.support.v4.app.Fragment;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.ryann9309.cassera.R;
 
 public class Landing_5_Fragment extends Fragment {
 

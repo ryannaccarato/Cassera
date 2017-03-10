@@ -1,4 +1,4 @@
-package com.example.ryann9309.cassera;
+package com.example.ryann9309.cassera.Landing;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.example.ryann9309.cassera.R;
 
 public class Landing_2_Fragment extends Fragment {
 

@@ -1,4 +1,4 @@
-package com.example.ryann9309.cassera;
+package com.example.ryann9309.cassera.Landing;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;
@@ -11,6 +11,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import com.example.ryann9309.cassera.LoggedIn.LessonAssignmentsActivity;
+import com.example.ryann9309.cassera.R;
+import com.example.ryann9309.cassera.Util.SimpleViewPagerChangeListener;
 
 public class LandingActivity extends AppCompatActivity {
 
@@ -51,7 +55,7 @@ public class LandingActivity extends AppCompatActivity {
         mFreeTrial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), LessonActivity.class));
+                startActivity(new Intent(getApplicationContext(), LessonAssignmentsActivity.class));
             }
         });
     }

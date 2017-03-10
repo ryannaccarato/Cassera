@@ -1,4 +1,4 @@
-package com.example.ryann9309.cassera;
+package com.example.ryann9309.cassera.Landing;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -6,6 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+import com.example.ryann9309.cassera.Util.API_GET;
+import com.example.ryann9309.cassera.LoggedIn.LessonsFragment;
+import com.example.ryann9309.cassera.LoggedIn.LoggedInHomeActivity;
+import com.example.ryann9309.cassera.R;
 
 import org.json.JSONObject;
 
@@ -33,8 +38,8 @@ public class LoginActivity extends AppCompatActivity {
                     API_GET.getSubscriptions(getApplicationContext(), mUserName.getText().toString(), mPassword.getText().toString(), new API_GET.JSONResponse() {
                         @Override
                         public void onSuccess(JSONObject object) {
-                            Intent i = new Intent(getApplicationContext(), LessonsActivity.class);
-                            i.putExtra(LessonsActivity.EXTRA_JSON_OBJECT, object.toString());
+                            Intent i = new Intent(getApplicationContext(), LessonsFragment.class);
+                            i.putExtra(LoggedInHomeActivity.EXTRA_JSON_OBJECT, object.toString());
                             startActivity(i);
                         }
                     });

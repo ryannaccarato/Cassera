@@ -1,4 +1,4 @@
-package com.example.ryann9309.cassera;
+package com.example.ryann9309.cassera.Model;
 
 /**
  * Created by JacksonGenerator on 2/28/17.

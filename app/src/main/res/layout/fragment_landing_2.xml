@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ryann9309.cassera.Landing_2_Fragment"
+    tools:context="com.example.ryann9309.cassera.Landing.Landing_2_Fragment"
     android:orientation="vertical"
     android:padding="20dp">
 

@@ -9,7 +9,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    tools:context="com.example.ryann9309.cassera.LessonsActivity">
+    tools:context="com.example.ryann9309.cassera.LoggedIn.LessonsFragment">
 
     <TextView
         android:text="@string/lessonsActivity_Title"
@@ -25,17 +25,10 @@
         android:layout_height="2dp" />
 
     <ListView
+        android:id="@+id/listView_LessonAssignmentsActivity_Main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:id="@+id/listView_Lessons"
-        android:layout_weight="6" />
-
-    <ExpandableListView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="6"
-        android:id="@+id/expandableListView_Lessons"
-        android:visibility="gone" />
+        android:layout_weight="6"/>
 
     <EditText
         android:layout_width="match_parent"

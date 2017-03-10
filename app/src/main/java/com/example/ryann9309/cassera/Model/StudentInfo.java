@@ -1,9 +1,12 @@
-package com.example.ryann9309.cassera;
+package com.example.ryann9309.cassera.Model;
 
 /**
  * Created by JacksonGenerator on 2/28/17.
  */
 
+import com.example.ryann9309.cassera.Model.AvailableLessonsItem;
+import com.example.ryann9309.cassera.Model.AvailableSubscriptionsItem;
+import com.example.ryann9309.cassera.Model.CurrentSubscription;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.List;
