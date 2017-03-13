@@ -13,8 +13,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.ryann9309.cassera.LoggedIn.LessonAssignmentsActivity;
+import com.example.ryann9309.cassera.LoggedIn.LoggedInHomeActivity;
 import com.example.ryann9309.cassera.R;
+import com.example.ryann9309.cassera.Util.API_GET;
 import com.example.ryann9309.cassera.Util.SimpleViewPagerChangeListener;
+
+import org.json.JSONObject;
 
 public class LandingActivity extends AppCompatActivity {
 
@@ -55,7 +59,14 @@ public class LandingActivity extends AppCompatActivity {
         mFreeTrial.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), LessonAssignmentsActivity.class));
+                API_GET.getSubscriptions(getApplicationContext(), "trial12", "bigfoot", new API_GET.JSONResponse() {
+                    @Override
+                    public void onSuccess(JSONObject object) {
+                        Intent i = new Intent(getApplicationContext(), LoggedInHomeActivity.class);
+                        i.putExtra(LoggedInHomeActivity.EXTRA_JSON_OBJECT, object.toString());
+                        startActivity(i);
+                    }
+                });
             }
         });
     }

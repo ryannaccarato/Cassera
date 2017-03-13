@@ -6,13 +6,6 @@
               android:orientation="vertical"
               tools:context="com.example.ryann9309.cassera.LoggedIn.LoggedInHomeActivity$PlaceholderFragment">
 
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="lessons"/>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -28,7 +21,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/basketball"/>
+            android:src="@drawable/golfball"
+            />
 
         <Space
             android:layout_width="0dp"
@@ -37,7 +31,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/activity_lesson"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -49,11 +42,48 @@
         tools:context="com.example.ryann9309.cassera.LoggedIn.LessonsFragment">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textView_LessonsFragment_LessonNumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left|center"
-            android:text="@string/lessonsActivity_Title"/>
+            android:text="@string/lessonsActivity_Title"
+            android:textSize="24sp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView_LessonsFragment_Assignments"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:text="Assignments"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/textView_LessonsFragment_Intensity"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:text="Intensity"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/textView_LessonsFragment_Equipment"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:gravity="center_vertical"
+                android:text="Equipment:"
+                android:textSize="18sp"/>
+
+            <ListView
+                android:id="@+id/listView_LessonsFragment_Equipment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
 
     </LinearLayout>
 

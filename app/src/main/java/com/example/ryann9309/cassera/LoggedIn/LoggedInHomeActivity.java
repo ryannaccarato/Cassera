@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.support.v13.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -20,16 +21,19 @@ import android.widget.TextView;
 
 import com.example.ryann9309.cassera.R;
 import com.example.ryann9309.cassera.Model.StudentInfo;
+import com.example.ryann9309.cassera.Util.SimpleViewPagerChangeListener;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 
 public class LoggedInHomeActivity extends Activity {
 
+    private TextView mLessons, mExercises, mFeedback;
 
     public static final String EXTRA_JSON_OBJECT = "jsonObject";
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
+    private boolean mSetPageManual = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,11 +59,60 @@ public class LoggedInHomeActivity extends Activity {
                 }
                 return null;
             }
-
             @Override
-            protected void onPostExecute(Void aVoid) {
-            }
+            protected void onPostExecute(Void aVoid) { }
         }.execute();
+        mViewPager.addOnPageChangeListener(new SimpleViewPagerChangeListener() {
+            @Override
+            public void onPageSelected(int position) { setPage(position); }
+        });
+        mLessons = (TextView) findViewById(R.id.textView_LoggedInHomeFragment_Lessons);
+        mExercises = (TextView) findViewById(R.id.textView_LoggedInHomeFragment_Exercises);
+        mFeedback = (TextView) findViewById(R.id.textView_LoggedInHomeFragment_Feedback);
+        mLessons.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { setPage(mLessons); }
+        });
+        mExercises.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { setPage(mExercises); }
+        });
+        mFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) { setPage(mFeedback); }
+        });
+        setPage(mLessons);
+    }
+
+    private void setPage(View view) {
+        mSetPageManual = true;
+        if (view == mLessons) {
+            mViewPager.setCurrentItem(0);
+            mLessons.setTypeface(Typeface.DEFAULT_BOLD);
+            mExercises.setTypeface(Typeface.DEFAULT);
+            mFeedback.setTypeface(Typeface.DEFAULT);
+        }
+        else if (view == mExercises) {
+            mViewPager.setCurrentItem(1);
+            mLessons.setTypeface(Typeface.DEFAULT);
+            mExercises.setTypeface(Typeface.DEFAULT_BOLD);
+            mFeedback.setTypeface(Typeface.DEFAULT);
+        }
+        else {
+            mViewPager.setCurrentItem(2);
+            mLessons.setTypeface(Typeface.DEFAULT);
+            mExercises.setTypeface(Typeface.DEFAULT);
+            mFeedback.setTypeface(Typeface.DEFAULT_BOLD);
+        }
+        mSetPageManual = false;
+    }
+
+    private void setPage(int i) {
+        if (!mSetPageManual) {
+            if (i == 0) setPage(mLessons);
+            else if (i == 1) setPage(mExercises);
+            else setPage(mFeedback);
+        }
     }
 
     @Override
@@ -77,50 +130,22 @@ public class LoggedInHomeActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public static class PlaceholderFragment extends Fragment {
-
-        private static final String ARG_SECTION_NUMBER = "section_number";
-
-        public PlaceholderFragment() { }
-
-        public static PlaceholderFragment newInstance(int sectionNumber) {
-            PlaceholderFragment fragment = new PlaceholderFragment();
-            Bundle args = new Bundle();
-            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-            fragment.setArguments(args);
-            return fragment;
-        }
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_lessons, container, false);
-            return rootView;
-        }
-    }
-
     public class SectionsPagerAdapter extends FragmentPagerAdapter {
 
-        public SectionsPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
+        public SectionsPagerAdapter(FragmentManager fm) { super(fm); }
         @Override
         public Fragment getItem(int position) {
-            return PlaceholderFragment.newInstance(position + 1);
-        }
-        @Override
-        public int getCount() {
-            return 3;
-        }
-        @Override
-        public CharSequence getPageTitle(int position) {
             switch (position) {
                 case 0:
-                    return "SECTION 1";
+                    return LessonsFragment.build();
                 case 1:
-                    return "SECTION 2";
+                    return ExercisesFragment.build();
                 case 2:
-                    return "SECTION 3";
+                    return FeedbackFragment.build();
             }
             return null;
         }
+        @Override
+        public int getCount() { return 3; }
     }
 }

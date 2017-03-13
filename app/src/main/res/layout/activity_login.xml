@@ -48,14 +48,14 @@
         android:layout_weight="2" />
 
     <EditText
+        android:id="@+id/editText_MainActivity_Username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:id="@+id/editText_MainActivity_Username"
-        android:hint="user@email.com"
         android:background="@android:drawable/edit_text"
-        android:text="trial12" />
+        android:ems="10"
+        android:hint="user@email.com"
+        android:inputType="textEmailAddress"
+        android:text="paid12"/>
 
     <EditText
         android:layout_width="match_parent"

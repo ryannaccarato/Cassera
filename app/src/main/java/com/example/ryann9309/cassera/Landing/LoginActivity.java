@@ -38,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
                     API_GET.getSubscriptions(getApplicationContext(), mUserName.getText().toString(), mPassword.getText().toString(), new API_GET.JSONResponse() {
                         @Override
                         public void onSuccess(JSONObject object) {
-                            Intent i = new Intent(getApplicationContext(), LessonsFragment.class);
+                            Intent i = new Intent(getApplicationContext(), LoggedInHomeActivity.class);
                             i.putExtra(LoggedInHomeActivity.EXTRA_JSON_OBJECT, object.toString());
                             startActivity(i);
                         }
