@@ -34,6 +34,7 @@ public class LoggedInHomeActivity extends Activity {
     private SectionsPagerAdapter mSectionsPagerAdapter;
     private ViewPager mViewPager;
     private boolean mSetPageManual = false;
+    private StudentInfo mStudentInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,19 +50,11 @@ public class LoggedInHomeActivity extends Activity {
         Intent i = getIntent();
         final String json = i.getStringExtra(EXTRA_JSON_OBJECT);
         final ObjectMapper mapper = new ObjectMapper();
-        new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected Void doInBackground(Void... params) {
-                try {
-                    StudentInfo info = mapper.readValue(json, StudentInfo.class);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                return null;
-            }
-            @Override
-            protected void onPostExecute(Void aVoid) { }
-        }.execute();
+        try {
+            mStudentInfo = mapper.readValue(json, StudentInfo.class);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         mViewPager.addOnPageChangeListener(new SimpleViewPagerChangeListener() {
             @Override
             public void onPageSelected(int position) { setPage(position); }
@@ -82,6 +75,40 @@ public class LoggedInHomeActivity extends Activity {
             public void onClick(View v) { setPage(mFeedback); }
         });
         setPage(mLessons);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_logged_in_home, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public class SectionsPagerAdapter extends FragmentPagerAdapter {
+
+        public SectionsPagerAdapter(FragmentManager fm) { super(fm); }
+        @Override
+        public Fragment getItem(int position) {
+            switch (position) {
+                case 0:
+                    return LessonsFragment.build(mStudentInfo);
+                case 1:
+                    return ExercisesFragment.build();
+                case 2:
+                    return FeedbackFragment.build();
+            }
+            return null;
+        }
+        @Override
+        public int getCount() { return 3; }
     }
 
     private void setPage(View view) {
@@ -113,39 +140,5 @@ public class LoggedInHomeActivity extends Activity {
             else if (i == 1) setPage(mExercises);
             else setPage(mFeedback);
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_logged_in_home, menu);
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    public class SectionsPagerAdapter extends FragmentPagerAdapter {
-
-        public SectionsPagerAdapter(FragmentManager fm) { super(fm); }
-        @Override
-        public Fragment getItem(int position) {
-            switch (position) {
-                case 0:
-                    return LessonsFragment.build();
-                case 1:
-                    return ExercisesFragment.build();
-                case 2:
-                    return FeedbackFragment.build();
-            }
-            return null;
-        }
-        @Override
-        public int getCount() { return 3; }
     }
 }

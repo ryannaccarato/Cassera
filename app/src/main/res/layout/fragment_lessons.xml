@@ -6,6 +6,15 @@
               android:orientation="vertical"
               tools:context="com.example.ryann9309.cassera.LoggedIn.LoggedInHomeActivity$PlaceholderFragment">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/background_dark"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp"
@@ -30,6 +39,14 @@
             android:layout_weight="1"/>
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/background_dark"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -46,12 +63,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="left|center"
+            android:paddingLeft="5dp"
             android:text="@string/lessonsActivity_Title"
             android:textSize="24sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
             android:orientation="vertical">
 
             <TextView
@@ -59,6 +78,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:gravity="center_vertical"
+                android:paddingLeft="5dp"
                 android:text="Assignments"
                 android:textSize="18sp"/>
 
@@ -67,6 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:gravity="center_vertical"
+                android:paddingLeft="5dp"
                 android:text="Intensity"
                 android:textSize="18sp"/>
 
@@ -75,15 +96,34 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:gravity="center_vertical"
+                android:paddingLeft="5dp"
                 android:text="Equipment:"
                 android:textSize="18sp"/>
 
             <ListView
                 android:id="@+id/listView_LessonsFragment_Equipment"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="0dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_weight="1"/>
 
         </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/background_dark"/>
+
+        <ListView
+            android:id="@+id/listView_LessonsFragment_PreviousLessons"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="2"/>
 
     </LinearLayout>
 

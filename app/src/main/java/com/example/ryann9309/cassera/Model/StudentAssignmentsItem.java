@@ -1,33 +1,26 @@
 package com.example.ryann9309.cassera.Model;
 
-/**
- * Created by JacksonGenerator on 2/28/17.
- */
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import org.json.JSONObject;
-
 import java.util.List;
-
 
 public class StudentAssignmentsItem {
     @JsonProperty("isDenied")
-    private Boolean isDenied;
+    public Boolean isDenied;
     @JsonProperty("studentFeedback")
-    private List studentFeedback;
+    public List studentFeedback;
     @JsonProperty("uploadUrl")
-    private JSONObject uploadUrl;
+    public JSONObject uploadUrl;
     @JsonProperty("completedOn")
-    private JSONObject completedOn;
+    public JSONObject completedOn;
     @JsonProperty("description")
-    private String description;
+    public String description;
     @JsonProperty("reasonDenied")
-    private JSONObject reasonDenied;
+    public JSONObject reasonDenied;
     @JsonProperty("title")
-    private String title;
+    public String title;
     @JsonProperty("assignmentId")
-    private String assignmentId;
+    public String assignmentId;
     @JsonProperty("createdOn")
-    private String createdOn;
+    public String createdOn;
 }

@@ -1,11 +1,6 @@
 package com.example.ryann9309.cassera.Model;
 
-/**
- * Created by JacksonGenerator on 2/28/17.
- */
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 
 public class AvailableLessonsItem {
     @JsonProperty("lessonNumber")
@@ -18,4 +13,8 @@ public class AvailableLessonsItem {
     public String createdOn;
     @JsonProperty("status")
     public Integer status;
+    @JsonProperty("notes")
+    public String notes;
+    @JsonProperty("title")
+    public String title;
 }
