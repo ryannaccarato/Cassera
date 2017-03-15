@@ -1,51 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.ryann9309.cassera.Landing.LoginActivity"
-    android:orientation="vertical">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:paddingBottom="@dimen/activity_vertical_margin"
+              android:paddingLeft="@dimen/activity_horizontal_margin"
+              android:paddingRight="@dimen/activity_horizontal_margin"
+              android:paddingTop="@dimen/activity_vertical_margin"
+              tools:context="com.example.ryann9309.cassera.Landing.LoginActivity">
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"/>
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:srcCompat="@drawable/logo"
-        android:id="@+id/imageView5"
-        android:background="@android:color/darker_gray"
         android:layout_weight="2"
+        android:background="@android:color/darker_gray"
         android:paddingLeft="5dp"
-        android:paddingRight="5dp" />
+        android:paddingRight="5dp"
+        app:srcCompat="@drawable/logo"/>
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2" />
+        android:layout_weight="2"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:text="@string/loginActivity_AccountMessage"
         android:layout_weight="1"
-        tools:layout_width="match_parent"
         android:gravity="center"
+        android:text="@string/loginActivity_AccountMessage"
+        android:textColor="@android:color/black"
         android:textSize="14sp"
-        android:textColor="@android:color/black" />
+        tools:layout_width="match_parent"/>
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2" />
+        android:layout_weight="2"/>
 
     <EditText
         android:id="@+id/editText_MainActivity_Username"
@@ -58,19 +56,19 @@
         android:text="paid12"/>
 
     <EditText
+        android:id="@+id/editText_MainActivity_Password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:id="@+id/editText_MainActivity_Password"
-        android:hint="password"
         android:background="@android:drawable/edit_text"
-        android:text="bigfoot" />
+        android:ems="10"
+        android:hint="password"
+        android:inputType="textPassword"
+        android:text="bigfoot"/>
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2" />
+        android:layout_weight="2"/>
 
     <Button
         android:id="@+id/button_MainActivity_Login"
@@ -80,14 +78,14 @@
         android:textSize="18sp"/>
 
     <Button
-        android:text="@string/loginActivity_CancelButton"
+        android:id="@+id/button_MainActivity_Cancel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button_MainActivity_Cancel"
-        android:textSize="18sp" />
+        android:text="@string/loginActivity_CancelButton"
+        android:textSize="18sp"/>
 
     <Space
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"/>
 </LinearLayout>

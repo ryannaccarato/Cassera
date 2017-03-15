@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.example.ryann9309.cassera.Model.AvailableLessonsItem;
 import com.example.ryann9309.cassera.Model.CurrentLesson;
+import com.example.ryann9309.cassera.Model.StudentAssignmentsItem;
 import com.example.ryann9309.cassera.Model.StudentInfo;
 import com.example.ryann9309.cassera.R;
 
@@ -50,26 +51,29 @@ public class LessonsFragment extends Fragment {
     }
 
     private void setupUI() {
-        mLessonNumber.setText("Lesson: " + mStudentInfo.currentSubscription.availableLessons.size());
-        mAssignments.setText((mCurrentLesson.studentAssignments.size() + 1) + " Assignments");
-        mIntensity.setText("Medium Intensity");
-        new AsyncTask<Void, Void, Void>() {
-            @Override
-            protected void onPostExecute(Void aVoid) {
-                mPreviousLessonsList.setAdapter(mPreviousLessonsAdapter);
-            }
-
-            @Override
-            protected Void doInBackground(Void... params) {
-                List<AvailableLessonsItem> availableLessons = mStudentInfo.currentSubscription.availableLessons;
-                String[] names = new String[availableLessons.size()];
-                for(int i = 0; i < availableLessons.size(); i++) {
-                    String name = availableLessons.get(i).title;
-                    names[i] = name != null ? name : "Generic Lesson " + i;
+        mLessonNumber.setText("Lesson: " + (mStudentInfo.currentSubscription.availableLessons.size() + 1));
+        if (mCurrentLesson != null) {
+            List<StudentAssignmentsItem> assignments = mCurrentLesson.studentAssignments;
+            mAssignments.setText((assignments == null ? 0 : assignments.size()) + " Assignments");
+            mIntensity.setText("Medium Intensity");
+            new AsyncTask<Void, Void, Void>() {
+                @Override
+                protected void onPostExecute(Void aVoid) {
+                    mPreviousLessonsList.setAdapter(mPreviousLessonsAdapter);
                 }
-                mPreviousLessonsAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_expandable_list_item_1, names);
-                return null;
-            }
-        }.execute();
+
+                @Override
+                protected Void doInBackground(Void... params) {
+                    List<AvailableLessonsItem> availableLessons = mStudentInfo.currentSubscription.availableLessons;
+                    String[] names = new String[availableLessons.size()];
+                    for (int i = 0; i < availableLessons.size(); i++) {
+                        String name = availableLessons.get(i).title;
+                        names[i] = name != null ? name : "Generic Lesson " + i;
+                    }
+                    mPreviousLessonsAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_expandable_list_item_1, names);
+                    return null;
+                }
+            }.execute();
+        }
     }
 }

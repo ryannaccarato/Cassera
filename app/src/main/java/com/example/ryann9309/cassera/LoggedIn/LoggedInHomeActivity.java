@@ -103,7 +103,7 @@ public class LoggedInHomeActivity extends Activity {
                 case 1:
                     return ExercisesFragment.build();
                 case 2:
-                    return FeedbackFragment.build();
+                    return FeedbackFragment.build(mStudentInfo);
             }
             return null;
         }

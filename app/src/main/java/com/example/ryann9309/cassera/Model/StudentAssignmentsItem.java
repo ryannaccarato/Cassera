@@ -8,7 +8,7 @@ public class StudentAssignmentsItem {
     @JsonProperty("isDenied")
     public Boolean isDenied;
     @JsonProperty("studentFeedback")
-    public List studentFeedback;
+    public List<Feedback> studentFeedback;
     @JsonProperty("uploadUrl")
     public JSONObject uploadUrl;
     @JsonProperty("completedOn")
