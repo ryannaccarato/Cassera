@@ -6,26 +6,28 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 import com.example.ryann9309.cassera.Util.API_GET;
-import com.example.ryann9309.cassera.LoggedIn.LessonsFragment;
 import com.example.ryann9309.cassera.LoggedIn.LoggedInHomeActivity;
 import com.example.ryann9309.cassera.R;
-
 import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
 
+    //region Fields
     private EditText mUserName, mPassword;
     private Button mLogin, mCancel;
+    //endregion
 
+    //region Protected
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         setupUI();
     }
+    //endregion
 
+    //region Private
     private void setupUI() {
         mLogin = (Button)findViewById(R.id.button_MainActivity_Login);
         mCancel = (Button)findViewById(R.id.button_MainActivity_Cancel);
@@ -61,4 +63,5 @@ public class LoginActivity extends AppCompatActivity {
         }
         return true;
     }
+    //endregion
 }

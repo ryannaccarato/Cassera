@@ -7,50 +7,51 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
-
-import com.example.ryann9309.cassera.Model.CurrentLesson;
-import com.example.ryann9309.cassera.Model.Feedback;
-import com.example.ryann9309.cassera.Model.StudentAssignmentsItem;
+import com.example.ryann9309.cassera.Model.AvailableLessonsItem;
 import com.example.ryann9309.cassera.R;
+import java.util.List;
 
-public class GenericExpandableListAdapter extends BaseExpandableListAdapter {
+public class LessonsExpandableListAdapter extends BaseExpandableListAdapter {
 
-    CurrentLesson mCurrentLesson;
-    Context mContext;
+    //region Fields
+    private List<AvailableLessonsItem> mAvailableLessonsItems;
+    private Context mContext;
+    //endregion
 
-    public GenericExpandableListAdapter(Context context, CurrentLesson currentLesson) {
+    //region Constructor
+    public LessonsExpandableListAdapter(Context context, List<AvailableLessonsItem> availableLessonsItems) {
         mContext = context;
-        mCurrentLesson = currentLesson;
+        mAvailableLessonsItems = availableLessonsItems;
     }
+    //endregion
 
+    //region Public
     @Override
-    public int getGroupCount() {
-        return mCurrentLesson.studentAssignments.size();
-    }
+    public int getGroupCount() { return 1; }
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return ((StudentAssignmentsItem)getGroup(groupPosition)).studentFeedback.size();
+        return mAvailableLessonsItems.size();
     }
 
     @Override
     public Object getGroup(int groupPosition) {
-        return mCurrentLesson.studentAssignments.get(groupPosition);
+        return "Previous Lessons";
     }
 
     @Override
     public Object getChild(int groupPosition, int childPosition) {
-        return ((StudentAssignmentsItem)getGroup(groupPosition)).studentFeedback.get(childPosition);
+        return mAvailableLessonsItems.get(childPosition);
     }
 
     @Override
     public long getGroupId(int groupPosition) {
-        return ((StudentAssignmentsItem)getGroup(groupPosition)).hashCode();
+        return 0;
     }
 
     @Override
     public long getChildId(int groupPosition, int childPosition) {
-        return ((Feedback)getChild(groupPosition, childPosition)).hashCode();
+        return getChild(groupPosition, childPosition).hashCode();
     }
 
     @Override
@@ -60,7 +61,7 @@ public class GenericExpandableListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        StudentAssignmentsItem group = (StudentAssignmentsItem) getGroup(groupPosition);
+        String group = (String) getGroup(groupPosition);
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.listview_group, null);
@@ -68,15 +69,14 @@ public class GenericExpandableListAdapter extends BaseExpandableListAdapter {
 
         TextView lblListHeader = (TextView) convertView.findViewById(R.id.textView_ListViewGroup_Header);
         lblListHeader.setTypeface(null, Typeface.BOLD);
-        String title = group.title;
-        lblListHeader.setText(title == null || title.isEmpty() ? "Generic Title: " + group.assignmentId : title);
+        lblListHeader.setText(group);
 
         return convertView;
     }
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        Feedback child = (Feedback) getChild(groupPosition, childPosition);
+        AvailableLessonsItem child = (AvailableLessonsItem) getChild(groupPosition, childPosition);
 
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -84,13 +84,13 @@ public class GenericExpandableListAdapter extends BaseExpandableListAdapter {
         }
 
         TextView txtListChild = (TextView) convertView.findViewById(R.id.textView_ListViewGroup_Item);
-        String message = child.message;
-        txtListChild.setText(message == null || message.isEmpty() ? "Generic Feedback: " + child.hashCode() : message);
+        txtListChild.setText("Lesson " + child.lessonNumber);
         return convertView;
     }
 
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
-        return true;
+        return false;
     }
+    //endregion
 }

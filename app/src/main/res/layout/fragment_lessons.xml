@@ -103,6 +103,7 @@
                 android:id="@+id/listView_LessonsFragment_Equipment"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:layout_marginBottom="5dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_weight="1"/>
@@ -116,12 +117,11 @@
             android:layout_marginTop="5dp"
             android:background="@android:color/background_dark"/>
 
-        <ListView
-            android:id="@+id/listView_LessonsFragment_PreviousLessons"
+        <ExpandableListView
+            android:id="@+id/expandableListView_LessonsFragment_PreviousLessons"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
             android:layout_weight="2"/>
 
     </LinearLayout>

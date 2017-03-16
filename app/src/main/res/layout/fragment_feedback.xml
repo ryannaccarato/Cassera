@@ -57,7 +57,9 @@
                 android:layout_weight="1"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="25dp"
-                android:text="Current Lesson # Feedback"/>
+                android:text="Current Lesson # Feedback"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/textView_FeedbackFragment_NumberOfAssignments"
@@ -67,7 +69,8 @@
                 android:elevation="1dp"
                 android:gravity="left|center_vertical"
                 android:paddingLeft="25dp"
-                android:text=" _____ Assignments"/>
+                android:text=" _____ Assignments"
+                android:textSize="16sp"/>
 
         </LinearLayout>
 
@@ -89,6 +92,7 @@
     <ExpandableListView
         android:id="@+id/expandableListView_FeedbackFragment_PreviousFeedback"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_margin="15dp"/>
 
 </LinearLayout>

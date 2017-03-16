@@ -11,66 +11,31 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-
-import com.example.ryann9309.cassera.LoggedIn.LessonAssignmentsActivity;
 import com.example.ryann9309.cassera.LoggedIn.LoggedInHomeActivity;
 import com.example.ryann9309.cassera.R;
 import com.example.ryann9309.cassera.Util.API_GET;
 import com.example.ryann9309.cassera.Util.SimpleViewPagerChangeListener;
-
 import org.json.JSONObject;
 
 public class LandingActivity extends AppCompatActivity {
 
+    //region Fields
     private ViewPager mPager;
     private PagerAdapter mPagerAdapter;
     private Button mLogin, mFreeTrial;
     private ImageView mDot1, mDot2, mDot3, mDot4, mDot5;
+    //endregion
 
+    //region Protected
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
         setupUI();
     }
+    //endregion
 
-    private void setupUI() {
-        mPager = (ViewPager) findViewById(R.id.viewPager_LandingActivity_Main);
-        mPager.addOnPageChangeListener(new SimpleViewPagerChangeListener() {
-            @Override
-            public void onPageSelected(int position) { setDot(position); }
-        });
-        mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
-        mPager.setAdapter(mPagerAdapter);
-        mDot1 = (ImageView)findViewById(R.id.imageView_LandingActivity_Dot_1);
-        mDot2 = (ImageView)findViewById(R.id.imageView_LandingActivity_Dot_2);
-        mDot3 = (ImageView)findViewById(R.id.imageView_LandingActivity_Dot_3);
-        mDot4 = (ImageView)findViewById(R.id.imageView_LandingActivity_Dot_4);
-        mDot5 = (ImageView)findViewById(R.id.imageView_LandingActivity_Dot_5);
-        setDot(0);
-        mLogin = (Button)findViewById(R.id.button_LandingActivity_Login);
-        mLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
-            }
-        });
-        mFreeTrial = (Button)findViewById(R.id.button_LandingActivity_FreeTrial);
-        mFreeTrial.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                API_GET.getSubscriptions(getApplicationContext(), "trial12", "bigfoot", new API_GET.JSONResponse() {
-                    @Override
-                    public void onSuccess(JSONObject object) {
-                        Intent i = new Intent(getApplicationContext(), LoggedInHomeActivity.class);
-                        i.putExtra(LoggedInHomeActivity.EXTRA_JSON_OBJECT, object.toString());
-                        startActivity(i);
-                    }
-                });
-            }
-        });
-    }
-
+    //region Public
     @Override
     public void onBackPressed() {
         if (mPager.getCurrentItem() == 0)
@@ -78,7 +43,9 @@ public class LandingActivity extends AppCompatActivity {
         else
             mPager.setCurrentItem(mPager.getCurrentItem() - 1);
     }
+    //endregion
 
+    //region Private
     private class ScreenSlidePagerAdapter extends FragmentStatePagerAdapter {
         public ScreenSlidePagerAdapter(FragmentManager fm) {
             super(fm);
@@ -133,4 +100,42 @@ public class LandingActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    private void setupUI() {
+        mPager = (ViewPager) findViewById(R.id.viewPager_LandingActivity_Main);
+        mPager.addOnPageChangeListener(new SimpleViewPagerChangeListener() {
+            @Override
+            public void onPageSelected(int position) { setDot(position); }
+        });
+        mPagerAdapter = new ScreenSlidePagerAdapter(getSupportFragmentManager());
+        mPager.setAdapter(mPagerAdapter);
+        mDot1 = (ImageView)findViewById(R.id.imageView_LandingActivity_Dot_1);
+        mDot2 = (ImageView)findViewById(R.id.imageView_LandingActivity_Dot_2);
+        mDot3 = (ImageView)findViewById(R.id.imageView_LandingActivity_Dot_3);
+        mDot4 = (ImageView)findViewById(R.id.imageView_LandingActivity_Dot_4);
+        mDot5 = (ImageView)findViewById(R.id.imageView_LandingActivity_Dot_5);
+        setDot(0);
+        mLogin = (Button)findViewById(R.id.button_LandingActivity_Login);
+        mLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+            }
+        });
+        mFreeTrial = (Button)findViewById(R.id.button_LandingActivity_FreeTrial);
+        mFreeTrial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                API_GET.getSubscriptions(getApplicationContext(), "trial12", "bigfoot", new API_GET.JSONResponse() {
+                    @Override
+                    public void onSuccess(JSONObject object) {
+                        Intent i = new Intent(getApplicationContext(), LoggedInHomeActivity.class);
+                        i.putExtra(LoggedInHomeActivity.EXTRA_JSON_OBJECT, object.toString());
+                        startActivity(i);
+                    }
+                });
+            }
+        });
+    }
+    //endregion
 }

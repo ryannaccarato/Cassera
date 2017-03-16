@@ -9,32 +9,34 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-
 import com.example.ryann9309.cassera.R;
 
 public class Landing_2_Fragment extends Fragment {
 
-    WebView mWebView;
+    //region Fields
+    private WebView mWebView;
+    //endregion
 
+    //region Public
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.fragment_landing_2, container, false);
         return rootView;
     }
-
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mWebView = (WebView)view.findViewById(R.id.webView_Main);
         //startWebView("https://www.stackoverflow.com");
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         mWebView = null;
     }
+    //endregion
 
+    //region Private
     private void startWebView(String url) {
         mWebView.setWebViewClient(new WebViewClient() {
             ProgressDialog progressDialog;
@@ -67,5 +69,5 @@ public class Landing_2_Fragment extends Fragment {
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.loadUrl(url);
     }
-
+    //endregion
 }

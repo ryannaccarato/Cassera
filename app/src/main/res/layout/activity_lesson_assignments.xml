@@ -13,30 +13,44 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="2dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/background_dark"/>
+
+    <TextView
+        android:id="@+id/textView_LessonAssignmentsActivity_LessonNumber"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:gravity="center"
-        android:text="@string/lessonsActivity_Title"/>
+        android:text="@string/lessonsActivity_Title"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
 
-    <Space
+    <TextView
         android:layout_width="match_parent"
-        android:background="@android:color/background_dark"
-        android:layout_height="2dp" />
+        android:layout_height="2dp"
+        android:layout_marginBottom="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/background_dark"/>
 
-    <ListView
-        android:id="@+id/listView_LessonAssignmentsActivity_Main"
+    <ExpandableListView
+        android:id="@+id/expandableListView_LessonAssignmentsActivity_Main"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="6"/>
+        android:layout_weight="1"/>
 
     <EditText
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight=".5"
-        android:inputType="textPersonName"
-        android:ems="10"
         android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@android:drawable/editbox_background_normal"
+        android:ems="10"
         android:hint="@string/lessonsActivity_CommentsHints"
-        android:background="@android:drawable/editbox_background_normal" />
+        android:inputType="textPersonName"/>
 
 </LinearLayout>

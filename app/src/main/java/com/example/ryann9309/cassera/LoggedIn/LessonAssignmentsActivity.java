@@ -1,35 +1,54 @@
 package com.example.ryann9309.cassera.LoggedIn;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.ExpandableListView;
+import android.widget.TextView;
 
+import com.example.ryann9309.cassera.Model.StudentAssignmentsItem;
+import com.example.ryann9309.cassera.Model.StudentInfo;
 import com.example.ryann9309.cassera.R;
+import com.example.ryann9309.cassera.Util.LessonAssignmentsExpandableListAdapter;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.IOException;
+import java.util.List;
 
 public class LessonAssignmentsActivity extends AppCompatActivity {
 
-    ArrayAdapter mAdapter;
+    //region Fields
+    public static final String EXTRA_JSON_OBJECT = "jsonObject";
+    private LessonAssignmentsExpandableListAdapter mLessonAssignmentsExpandableListAdapter;
+    private ExpandableListView mExpandableListView;
+    //endregion
 
+    //region Protected
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logged_in_home);
+        setContentView(R.layout.activity_lesson_assignments);
         setupUI();
     }
+    //endregion
 
+    //region Private
     private void setupUI() {
-        mAdapter = new ArrayAdapter(this, android.R.layout.simple_expandable_list_item_1, new String[] { getString(R.string.lessonActivity_EmptyLessonsList) });
-        ListView listView = (ListView)findViewById(R.id.listView_LessonAssignmentsActivity_Main);
-        listView.setAdapter(mAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), R.string.lessonActivity_ItemClickedToast, Toast.LENGTH_SHORT).show();
+        mExpandableListView = (ExpandableListView)findViewById(R.id.expandableListView_LessonAssignmentsActivity_Main);
+        Intent i = getIntent();
+        String json = i.getStringExtra(EXTRA_JSON_OBJECT);
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            StudentInfo studentInfo = mapper.readValue(json, StudentInfo.class);
+            if (studentInfo != null && studentInfo.currentSubscription != null && studentInfo.currentSubscription.currentLesson != null) {
+                List<StudentAssignmentsItem> list = studentInfo.currentSubscription.currentLesson.studentAssignments;
+                if (list != null) {
+                    mLessonAssignmentsExpandableListAdapter = new LessonAssignmentsExpandableListAdapter(this, list);
+                    mExpandableListView.setAdapter(mLessonAssignmentsExpandableListAdapter);
+                }
             }
-        });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
+    //endregion
 }

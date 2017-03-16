@@ -13,9 +13,9 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class API_GET {
 
+    //region Public
     public static boolean getSubscriptions(final Context context, final String username, final String password, final JSONResponse jsonResponse) {
         RequestQueue queue =  Volley.newRequestQueue(context);
         JsonObjectRequest jsonRequest = new JsonObjectRequest(
@@ -46,8 +46,11 @@ public class API_GET {
         queue.add(jsonRequest);
         return false;
     }
+    //endregion
 
+    //region Sub-Classes
     public interface JSONResponse {
         void onSuccess(JSONObject object);
     }
+    //endregion
 }
