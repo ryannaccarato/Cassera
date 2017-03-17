@@ -82,7 +82,7 @@ public class LessonsFragment extends Fragment implements View.OnClickListener {
         if (availableLessonsItems == null)
             mLessonNumber.setText("Lesson: " + 1);
         else {
-            mLessonNumber.setText("Lesson: " + availableLessonsItems.size() + 1);
+            mLessonNumber.setText("Lesson: " + (availableLessonsItems.size() + 1));
             mLessonsExpandableListAdapter = new LessonsExpandableListAdapter(getActivity(), availableLessonsItems);
             mPreviousLessons.setAdapter(mLessonsExpandableListAdapter);
         }
